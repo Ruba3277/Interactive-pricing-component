@@ -230,8 +230,24 @@ h2{
     outline: 2px solid var(--color-bar-button-bg);
     outline-offset: 3px;
 }
+.yearly-billing{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.discount{
+    margin-block: unset;
+    font-size: 10px;
+    padding: 3px 9px;
+    background-color: var(--color-discount-bg);
+    font-weight: 800;
+    color: var(--color-discount-text);
+    border-radius: 10px;
+}
 .discount-text{
     display: none;
+    color: var(--color-discount-text);
+    margin-block-start: unset;
 }
 .year, .month{
     display: flex;
@@ -240,15 +256,7 @@ h2{
     font-size: clamp(12px, 3vw, 14px);
     margin:0;
 }
-.discount-value{
-    margin-block-start: unset;
-    font-size: 10px;
-    padding: 3px 9px;
-    background-color: var(--color-discount-bg);
-    font-weight: 800;
-    color: var(--color-discount-text);
-    border-radius: 10px;
-}
+
 
 /*cta*/
 
@@ -313,6 +321,9 @@ button:hover{
         justify-content: space-between;
    }
    .cta-text{align-items: self-start;}
+   .discount-text{
+        display: inline;
+   }
    
    
    
