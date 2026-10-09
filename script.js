@@ -5,6 +5,9 @@ const slider = document.querySelector(".slider");
 const viewsCount = document.querySelector(".views-count");
 const price = document.querySelector(".price");
 
+const billingSwitch = document.querySelector(".switch input");
+
+
 
 const plans = [
   { views: "10K", price: 8 },
@@ -71,7 +74,14 @@ progressBar.addEventListener("click", (e) => {
 function updateSlider() {
     const plan = plans[currentIndex];
     viewsCount.textContent = plan.views;
-    price.textContent = `$${plan.price}.00`;
+
+    const isYearly = billingSwitch.checked;
+    const finalPrice = isYearly
+        ? plan.price * 0.75
+        : plan.price;
+
+    price.textContent = `$${finalPrice.toFixed(2)}`;
+
 
     const percentage =
         (currentIndex / (plans.length - 1)) * 100;
@@ -80,5 +90,7 @@ function updateSlider() {
     slider.style.left = `${percentage}%`;
 }
 
+updateSlider();
+billingSwitch.addEventListener("change", updateSlider);
 updateSlider();
 
