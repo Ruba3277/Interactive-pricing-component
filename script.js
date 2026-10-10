@@ -21,8 +21,16 @@ let currentIndex = 2;
 
 
 sliderInput.addEventListener("input", () => {
-    currentIndex = Number(sliderInput.value);
-    updateSlider();
+
+   sliderInput.classList.add("changed");
+
+   clearTimeout(colorTimeout);
+
+   colorTimeout = setTimeout(() => {
+        sliderInput.classList.remove("changed");
+    }, 2000); // 2 seconds
+   currentIndex = Number(sliderInput.value);
+   updateSlider();
 });
 
 function updateSlider() {
