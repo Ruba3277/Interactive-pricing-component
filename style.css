@@ -137,7 +137,7 @@ p span {
     height: 42px;
     border-radius: 50%;
     background: var(--color-bar-button-bg) url(images/icon-slider.svg) center no-repeat;
-    box-shadow: 0 6px 26px var(--color-active-bar-button-bg);
+    box-shadow: 0 6px 26px var(--color-bar-button-bg);
     cursor: pointer;
 }
 .slider-input::-moz-range-thumb {
@@ -146,8 +146,16 @@ p span {
     border-radius: 50%;
     border: none;
     background: var(--color-bar-button-bg) url(images/icon-slider.svg) center no-repeat;
-    box-shadow: 0 6px 26px var(--color-active-bar-button-bg);
+    box-shadow: 0 6px 26px var(--color-bar-button-bg);
     cursor: pointer;
+}
+/* Color changes while moving the slider */
+.slider-input:active::-webkit-slider-thumb {
+    background-color: var(--color-active-bar-button-bg);
+}
+
+.slider-input:active::-moz-range-thumb {
+    background-color: var(--color-active-bar-button-bg);
 }
 
 .billing{
