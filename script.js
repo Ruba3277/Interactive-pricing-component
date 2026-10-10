@@ -1,6 +1,5 @@
-const progressBar = document.querySelector(".progress-bar");
-const progressFill = document.querySelector(".progress-fill");
-const slider = document.querySelector(".slider");
+
+const sliderInput = document.querySelector(".slider-input");
 
 const viewsCount = document.querySelector(".views-count");
 const price = document.querySelector(".price");
@@ -18,57 +17,11 @@ const plans = [
 ];
 
 let currentIndex = 2;
-let isDragging = false;
 
-slider.addEventListener("pointerdown", (e) => {
-    // start dragging
-    isDragging = true;
-    slider.setPointerCapture(e.pointerId);
-});
 
-slider.addEventListener("pointermove", (e) => {
-    // move slider
-    if (!isDragging) return;
-    const barPosition = progressBar.getBoundingClientRect();
-
-    const position = e.clientX - barPosition.left;
-
-    let percentage = (position / barPosition.width) * 100;
-    percentage = Math.max(0, Math.min(100, percentage));
-    currentIndex = Math.round(
-        (percentage / 100) * (plans.length - 1)
-    );
-    
-    slider.classList.add("active");
+sliderInput.addEventListener("input", () => {
+    currentIndex = Number(sliderInput.value);
     updateSlider();
-    setTimeout(() => {
-        slider.classList.remove("active");
-    }, 2000);
-});
-
-slider.addEventListener("pointerup", (e) => {
-    // stop dragging
-    isDragging = false;
-});
-
-progressBar.addEventListener("click", (e) => {
-    const barPosition = progressBar.getBoundingClientRect();
-
-    const position = e.clientX - barPosition.left;
-
-    const percentage = (position / barPosition.width) * 100;
-
-    currentIndex = Math.round(
-        (percentage / 100) * (plans.length - 1)
-    );
-
-    slider.classList.add("active");
-
-
-    updateSlider();
-    setTimeout(() => {
-        slider.classList.remove("active");
-    }, 2000);
 });
 
 function updateSlider() {
@@ -76,21 +29,14 @@ function updateSlider() {
     viewsCount.textContent = plan.views;
 
     const isYearly = billingSwitch.checked;
-    const finalPrice = isYearly
-        ? plan.price * 0.75
-        : plan.price;
-
+    const finalPrice = isYearly ? plan.price * 0.75 : plan.price;
     price.textContent = `$${finalPrice.toFixed(2)}`;
 
+    const percentage = (currentIndex / (plans.length - 1)) * 100;
 
-    const percentage =
-        (currentIndex / (plans.length - 1)) * 100;
-
-    progressFill.style.width = `${percentage}%`;
-    slider.style.left = `${percentage}%`;
+    sliderInput.style.setProperty("--fill", percentage + "%");
 }
 
-updateSlider();
 billingSwitch.addEventListener("change", updateSlider);
-updateSlider();
 
+updateSlider();
