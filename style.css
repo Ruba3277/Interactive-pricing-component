@@ -146,7 +146,7 @@ p span {
     border-radius: 50%;
     border: none;
     background: var(--color-bar-button-bg) url(images/icon-slider.svg) center no-repeat;
-    box-shadow: 0 6px 26px var(--color-bar-button-bg);
+    box-shadow: 0 6px 26px var(--color-active-bar-button-bg);
     cursor: pointer;
 }
 
