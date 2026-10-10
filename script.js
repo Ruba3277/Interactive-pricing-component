@@ -18,7 +18,7 @@ const plans = [
 ];
 
 let currentIndex = 2;
-
+let colorTimeout;
 
 sliderInput.addEventListener("input", () => {
 
