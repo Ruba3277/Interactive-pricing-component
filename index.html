@@ -18,23 +18,21 @@
     
     <p>Sign-up for our 30-day trial. <span>No credit card required.</span></p>
     
-    <img src="images/pattern-circles.svg" alt="pattern">
+    <img src="images/pattern-circles.svg" alt="">
   </section>
   <section class="pricing-feature">
-    <div class="price-details">
+    <div class="price-details" aria-live="polite">
       <h2><span class="views-count"></span> Pageviews</h2>
       <p><span class="price"></span> /month</p>
     </div>
     <div class="progress-bar">
-      <div class="progress-fill"></div>
-      <div class="img-wrapper slider">
-        <img src="images/icon-slider.svg" alt="slider">
-      </div>
+      
+      <input type="range" class="slider-input" min="0" max="4" step="1" value="2" aria-label="Monthly pageviews">
       
     </div>
     <div class="billing">
       <p class="month">Monthly Billing</p>
-      <label class="switch"><input type="checkbox"><span class="switch-slider"></span></label>
+      <label class="switch"><input type="checkbox" aria-label="Bill yearly"><span class="switch-slider"></span></label>
       <div class="yearly-billing">
         <p class="year">Yearly Billing </p>
         <p class="discount"><span span class="discount-value">-25% </span><span class="discount-text">discount</span></p>
@@ -42,9 +40,9 @@
     </div>
     <div class="cta">
       <div class="cta-text">
-        <p><img src="images/icon-check.svg" alt="checkmark">Unlimited websites</p>
-        <p><img src="images/icon-check.svg" alt="checkmark">100% data ownership</p>
-        <p><img src="images/icon-check.svg" alt="checkmark">Email reports</p> 
+        <p><img src="images/icon-check.svg" alt="">Unlimited websites</p>
+        <p><img src="images/icon-check.svg" alt="">100% data ownership</p>
+        <p><img src="images/icon-check.svg" alt="">Email reports</p> 
       </div>
       <button type="button" class="btn">  Start my trial</button>
     </div>
@@ -53,4 +51,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
