@@ -88,40 +88,45 @@ h2{
     
 
 .progress-bar{
-    position: relative;
-    width: 100%;
-    height: clamp(7px, 3vw, 8.5px);
-    background-color: var(--color-bar-bg);
-    border-radius: 10px;
+    
     margin-block: 2.5rem;
-    touch-action: none;
     cursor: pointer;
 }
 
-.progress-bar::before {
-    content: "";
-    position: absolute;
-    top: -25px;
-    bottom: -25px;
-    left: 0;
-    right: 0;
+.slider-input{
+    appearance: none;
+    width: 100%;
+    height: clamp(7px, 3vw, 8.5px);
+    border-radius: 10px;
+    background: linear-gradient(to right,
+        var(--color-bar-fill) var(--fill, 50%),
+        var(--color-bar-bg) var(--fill, 50%));
+    cursor: pointer;
+    outline: none;
+}
+.slider-input::-webkit-slider-thumb {
+    appearance: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-bar-button-bg) url(images/icon-slider.svg) center no-repeat;
+    box-shadow: 0 6px 26px var(--color-bar-button-bg);
     cursor: pointer;
 }
-.progress-fill{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 100%;
-    background-color: var(--color-bar-fill);
-    border-radius: 10px;
-    pointer-events: none;
+.slider-input::-moz-range-thumb {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-bar-button-bg) url(images/icon-slider.svg) center no-repeat;
+    box-shadow: 0 6px 26px var(--color-bar-button-bg);
+    cursor: pointer;
 }
 .price-details p{
     position: absolute;
     right: 50%;
     transform: translateX(50%);
-    top: 72px;
+    top: 85px;
     bottom: 0;
     padding-block-start: 2.8rem;
     display: flex;
@@ -152,37 +157,6 @@ h2{
     bottom: -3rem;
     
     width: calc(100% + 4rem);
-}
-.slider{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: clamp(37px, 6vw, 42px);
-    height: clamp(37px, 6vw, 42px);
-    border-radius: 50%;
-
-    background-color: var(--color-bar-button-bg);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-    box-shadow: 0 6px 26px var(--color-bar-button-bg);
-}
-.slider:hover{background-color: var(--color-active-bar-button-bg);}
-.slider:active {
-    cursor: grabbing;
-    
-}
-.slider.active{
-    background-color: var(--color-active-bar-button-bg);
-    transition: background-color 0.2s ease, left 0.3s ease;
-}
-.slider img {
-    pointer-events: none;
 }
 
 /*switch*/
