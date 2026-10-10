@@ -1,6 +1,7 @@
 
 const sliderInput = document.querySelector(".slider-input");
 
+
 const viewsCount = document.querySelector(".views-count");
 const price = document.querySelector(".price");
 
@@ -34,8 +35,13 @@ function updateSlider() {
 
     const percentage = (currentIndex / (plans.length - 1)) * 100;
 
+    
+
     sliderInput.style.setProperty("--fill", percentage + "%");
 }
+
+
+
 
 billingSwitch.addEventListener("change", updateSlider);
 
