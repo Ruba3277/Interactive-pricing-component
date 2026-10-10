@@ -70,26 +70,53 @@ p span {
 
 }
 .pricing-feature{
+    display: grid;
+    grid-template-areas:
+        "views"
+        "bar"
+        "price";
+    row-gap: 2.5rem;
+    text-align: center;
     padding: 2.2rem clamp(2rem, 3vw, 3.25rem);
     background-color: var(--color-pricing-card-bg);
     width: 100%;
     max-width: 500px;
     border-radius: 10px;
-    box-sizing: border-box;
     box-shadow: 0 12px 26px var(--color-toggle-bg);
 }  
-h2{
+.views {
+    grid-area: views;
     font-size: clamp(11.5px, 3vw, 13.5px);
     color: var(--color-text);
     letter-spacing: 1.5px;
-    text-transform: uppercase;
-    
+    text-transform: uppercase;   
+}
+
+.progress-bar {
+    grid-area: bar;
+    margin: 0;
+}
+
+.price-line {
+    grid-area: price;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    max-width: unset;
+}
+
+.price {
+    font-size: clamp(27px, 3vw, 36px);
+    color: var(--color-text-and-cta-bg);
+    font-weight: 800;
 }
     
 
 .progress-bar{
     
-    margin-block: 2.5rem;
+    
     cursor: pointer;
 }
 
@@ -122,26 +149,9 @@ h2{
     box-shadow: 0 6px 26px var(--color-bar-button-bg);
     cursor: pointer;
 }
-.price-details p{
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    top: 85px;
-    bottom: 0;
-    padding-block-start: 2.8rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.price{
-    display: inline;
-    font-size: clamp(27px, 3vw, 36px);
-    color: var(--color-text-and-cta-bg);
-    font-weight: 800;
-    margin-block-start: unset;
-}
+
 .billing{
-    margin-block: 6rem 4.5rem;
+    
     display: flex;
     white-space: nowrap;
     gap: 13px;
@@ -217,12 +227,14 @@ h2{
     font-weight: 800;
     color: var(--color-discount-text);
     border-radius: 10px;
+    display: flex;
 }
 .discount-text{
     display: none;
     color: var(--color-discount-text);
     margin-block-start: unset;
 }
+.discount-value{margin-block-start: unset;}
 .year, .month{
     display: flex;
     align-items: center;
@@ -233,6 +245,9 @@ h2{
 
 
 /*cta*/
+
+.cta{    padding-block-start: 2rem;
+}
 
 .cta-text{
     display: flex;
@@ -262,6 +277,8 @@ button{
     border-radius: 20px;
     color: var(--color-button-text);
     font-size: clamp(10px, 3vw, 12px);
+    white-space: nowrap;
+
 }
 
 button:hover{
@@ -270,33 +287,63 @@ button:hover{
 }
 
 @media screen and (min-width:48rem) {
-    p{    max-width: unset;}
-    p span {
-        display: unset;
-        margin-block-start: 0.45rem;
-   }
-   .price-details{
+    .pricing-feature {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "views price"
+            "bar   bar"
+            "billing billing"
+            "cta cta";
+        align-items: center;
+    }
+
+    .views {
+        grid-area: views;
+        text-align: left;
+    }
+
+    .progress-bar {
+        grid-area: bar;
+    }
+
+    .price-line {
+        grid-area: price;
+        justify-self: end;
+    }
+
+    .billing {
+        grid-area: billing;
+        
+    }
+
+    .cta {
+        grid-area: cta;
         display: flex;
         align-items: center;
-   }
-   .price-details p{
-        position: unset;
-        transform: unset;
-        padding-block-start: unset;
-        margin: unset;
-        margin-inline-start: auto;
-   }
-   .billing {
-        margin-block-start:3rem;
-   }  
+        justify-content: space-between;
+       
+    }
+
+    .cta-text {
+        align-items: self-start;
+        width: 100%;
+    }
+
+    .discount-text {
+        display: inline;
+    }
+    
    .cta{
         display: flex;
         align-items: center;
         justify-content: space-between;
    }
-   .cta-text{align-items: self-start;}
+   
    .discount-text{
         display: inline;
+   }
+   button {
+    margin-block-start: unset;
    }
    
    
