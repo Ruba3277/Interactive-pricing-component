@@ -5,7 +5,7 @@
 }
 :root {
   --color-bar-fill: hsl(174, 77%, 80%);
-  --color-bar-button-bg: hsl(174, 86%, 25%);
+  --color-bar-button-bg: hsl(174, 86%, 45%);
   --color-active-bar-button-bg:#24ADA2;
 
   --color-discount-bg: hsl(0, 89%, 96%); /* Discount Background */
