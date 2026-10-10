@@ -18,10 +18,17 @@ const plans = [
 ];
 
 let currentIndex = 2;
-
+let colorTimeout;
 
 sliderInput.addEventListener("input", () => {
 
+   sliderInput.classList.add("changed");
+
+   clearTimeout(colorTimeout);
+
+   colorTimeout = setTimeout(() => {
+        sliderInput.classList.remove("changed");
+    }, 2000); // 2 seconds
    currentIndex = Number(sliderInput.value);
    updateSlider();
 });
