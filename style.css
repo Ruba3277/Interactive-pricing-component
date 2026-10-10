@@ -152,11 +152,11 @@ p span {
     transition: background-color 0.2s ease;
 }
 /* Color changes while moving the slider */
-.slider-input:active::-webkit-slider-thumb {
+.slider-input.changed::-webkit-slider-thumb {
     background-color: var(--color-active-bar-button-bg);
 }
 
-.slider-input:active::-moz-range-thumb {
+.slider-input.changed::-moz-range-thumb {
     background-color: var(--color-active-bar-button-bg);
 }
 
